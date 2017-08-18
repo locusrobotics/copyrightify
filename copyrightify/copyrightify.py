@@ -124,7 +124,7 @@ def process_paths(paths, recursive, config, context):
     for path in paths:
         if os.path.isfile(path):
             process_file(path, config, context)
-        if os.path.isdir(path):
+        elif os.path.isdir(path):
             if recursive:
                 for subdir, dirs, files in os.walk(path):
                     for f in files:
@@ -134,6 +134,8 @@ def process_paths(paths, recursive, config, context):
                     file_path = os.path.join(path, f)
                     if os.path.isfile(file_path):
                         process_file(file_path, config, context)
+        else:
+            print("Not a valid path, skipping {}".format(path))
 
 
 def main():
@@ -154,7 +156,6 @@ def main():
         process_paths(args.paths, args.recursive, config, context)
         sys.exit(0)
     except Exception as e:
-        raise
         print("Error: {}".format(e, file=sys.stderr))
         sys.exit(1)
 
