@@ -1,3 +1,11 @@
+# Software License Agreement (proprietary)
+#
+# \file      copyrightify.py
+# \authors   Paul Bovbel <pbovbel@locusrobotics.com>
+# \copyright Copyright (c) (2017,), Locus Robotics, All rights reserved.
+#
+# Unauthorized copying of this file, via any medium, is strictly prohibited.
+# Proprietary and confidential.
 from __future__ import print_function
 
 import argparse
@@ -113,8 +121,11 @@ def process_file(path, config, context):
                 tmp.write(line)
 
             tmp.flush()
-            print("Added copyright to {}".format(path))
-            shutil.copyfile(tmp.name, path)
+            try:
+                shutil.copyfile(tmp.name, path)
+                print("Added copyright to {}".format(path))
+            except:
+                print("Could not overwrite with changes, skipping {}".format(path), file=sys.stderr)
 
 
 def process_paths(paths, recursive, config, context):
@@ -126,7 +137,7 @@ def process_paths(paths, recursive, config, context):
             process_file(path, config, context)
         elif os.path.isdir(path):
             if recursive:
-                for subdir, dirs, files in os.walk(path):
+                for subdir, _, files in os.walk(path):
                     for f in files:
                         process_file(os.path.join(subdir, f), config, context)
             else:
@@ -135,7 +146,7 @@ def process_paths(paths, recursive, config, context):
                     if os.path.isfile(file_path):
                         process_file(file_path, config, context)
         else:
-            print("Not a valid path, skipping {}".format(path))
+            print("Not a valid path, skipping {}".format(path), file=sys.stderr)
 
 
 def main():
@@ -144,8 +155,7 @@ def main():
 
         parser = argparse.ArgumentParser()
         parser.add_argument('paths', type=str, nargs='+', help='Path to process')
-        parser.add_argument(
-            '--recursive', '-r', action='store_true', default=False, help="Recurse through all subdirectories.")
+        parser.add_argument('--recursive', '-r', action='store_true', help="Recurse through all subdirectories.")
         parser.add_argument(
             '--license', type=str, default="proprietary", choices=config['licenses'].keys(), help="License type.")
         args, unknown = parser.parse_known_args()

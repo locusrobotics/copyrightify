@@ -1,3 +1,11 @@
+# Software License Agreement (proprietary)
+#
+# \file      setup.py
+# \authors   Paul Bovbel <pbovbel@locusrobotics.com>
+# \copyright Copyright (c) (2017,), Locus Robotics, All rights reserved.
+#
+# Unauthorized copying of this file, via any medium, is strictly prohibited.
+# Proprietary and confidential.
 from setuptools import setup
 
 setup(name='copyrightify',
