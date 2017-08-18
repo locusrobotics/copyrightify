@@ -17,6 +17,8 @@ setup(name='copyrightify',
               'copyrightify = copyrightify.copyrightify:main'
           ]
       },
+      include_package_data=True,
+      package_data={'copyrightify': ['config.yaml']},
       classifiers=[
             'Environment :: Console',
             'Intended Audience :: Developers',
