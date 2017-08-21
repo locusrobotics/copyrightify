@@ -10,8 +10,8 @@ from setuptools import setup
 
 setup(name='copyrightify',
       packages=['copyrightify'],
-      version='0.0.0',
-      description='Apply copyright headers to source files',
+      version='0.0.1',
+      description='Apply copyright/license headers to source files',
       author='Paul Bovbel',
       author_email='pbovbel@locusrobotics.com',
       url='https://github.com/locusrobotics/copyrightify',
