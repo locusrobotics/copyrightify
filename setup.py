@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='copyrightify',
     packages=['copyrightify'],
-    version='0.0.2',
+    version='0.0.3',
     description='Apply copyright/license headers to source files',
     license='BSD',
     author='Paul Bovbel',
