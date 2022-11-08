@@ -168,7 +168,7 @@ def process_paths(paths, recursive, config, context):
 
 def main():
     try:
-        config = yaml.load(resource_string(__name__, 'config.yaml'))
+        config = yaml.load(resource_string(__name__, 'config.yaml'), Loader=yaml.SafeLoader)
 
         parser = argparse.ArgumentParser()
         parser.add_argument('paths', type=str, nargs='+', help='Path to process')
