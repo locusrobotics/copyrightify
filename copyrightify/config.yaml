@@ -1,7 +1,6 @@
 ---
 preamble: |
   Copyright (C) {{ year }} {{ company }}. All rights reserved.
-  {{ license }}
 
 filetypes:
   sh: &sh ['', '# ', '']
