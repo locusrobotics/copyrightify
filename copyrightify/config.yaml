@@ -4,7 +4,7 @@ preamble: |
 
 filetypes:
   sh: &sh ['', '# ', '']
-  c: &c ['/**', '', '**/']
+  c: &c ['', '//', '']
   xml: &xml ['<!--', '', '-->']
   bash: *sh
   cmake: *sh
