@@ -1,10 +1,6 @@
 ---
 preamble: |
-  Software License Agreement ({{ license }})
-
-  \file      {{ filename }}
-  \authors   {{ name }} <{{ email }}>
-  \copyright Copyright (c) {{ year }}, {{ company }}, All rights reserved.
+  Copyright (C) {{ year }} {{ company }}. All rights reserved.
 
 filetypes:
   sh: &sh ['', '# ', '']
